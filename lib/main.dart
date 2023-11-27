@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/home_screen.dart';
 import 'package:toonflix/widgets/button.dart';
 import 'package:toonflix/widgets/currency_card.dart';
 
@@ -8,10 +9,32 @@ class Player {
 }
 
 void main() {
-  var jenny = Player(name: "jenny");
-  runApp(const MyWidget());
+  runApp(const Pomo());
 }
 
+class Pomo extends StatelessWidget {
+  const Pomo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSwatch(
+          backgroundColor: const Color(0xFFE7626C),
+        ),
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
+          ),
+        ),
+        cardColor: const Color(0xFFF4EDDB),
+      ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+//stateful widget practice
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
 
@@ -44,7 +67,7 @@ class _MyWidgetState extends State<MyWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              showTitle ? const MyLargeTitle() : const Text("nothing"),
+              showTitle ? const MyLargeTitle() : const Text('nothing'),
               IconButton(
                   onPressed: toggleTitle,
                   icon: const Icon(
@@ -73,20 +96,20 @@ class _MyLargeTitleState extends State<MyLargeTitle> {
   @override
   void initState() {
     super.initState();
-    print("initState!");
+    print('initState!');
   }
 
   @override
   void dispose() {
     super.dispose();
-    print("dispose!");
+    print('dispose!');
   }
 
   @override
   Widget build(BuildContext context) {
-    print("build!");
+    print('build!');
     return Text(
-      "My Large Title",
+      'My Large Title',
       style: TextStyle(
         fontSize: 30,
         color: Theme.of(context).textTheme.titleLarge?.color,
@@ -95,6 +118,7 @@ class _MyLargeTitleState extends State<MyLargeTitle> {
   }
 }
 
+//stateless widget practice
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -121,7 +145,7 @@ class App extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Text(
-                        "Hey Selina",
+                        'Hey Selina',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 28,
@@ -129,7 +153,7 @@ class App extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        "Welcome back",
+                        'Welcome back',
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.8),
                           fontSize: 18,
@@ -143,7 +167,7 @@ class App extends StatelessWidget {
                 height: 80,
               ),
               Text(
-                "Total Balance",
+                'Total Balance',
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white.withOpacity((0.8)),
@@ -153,7 +177,7 @@ class App extends StatelessWidget {
                 height: 5,
               ),
               const Text(
-                "\$5 194 482",
+                '\$5 194 482',
                 style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.w600,
@@ -167,12 +191,12 @@ class App extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Button(
-                    text: "Transfer",
+                    text: 'Transfer',
                     bgColor: Color(0xFFF1B33B),
                     textColor: Colors.white,
                   ),
                   Button(
-                    text: "Request",
+                    text: 'Request',
                     bgColor: Color(0xFF1F2123),
                     textColor: Colors.white,
                   )
@@ -186,14 +210,14 @@ class App extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "Wallets",
+                    'Wallets',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 36,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Text("View All",
+                  Text('View All',
                       style: TextStyle(
                         color: Colors.white.withOpacity(0.8),
                         fontSize: 18,
@@ -204,25 +228,25 @@ class App extends StatelessWidget {
                 height: 20,
               ),
               const CurrencyCard(
-                name: "Euro",
-                code: "EUR",
-                amount: "6 428",
+                name: 'Euro',
+                code: 'EUR',
+                amount: '6 428',
                 icon: Icons.euro_rounded,
                 isInverted: false,
                 offset: 0,
               ),
               const CurrencyCard(
-                name: "Bitcoin",
-                code: "BTC",
-                amount: "9 785",
+                name: 'Bitcoin',
+                code: 'BTC',
+                amount: '9 785',
                 icon: Icons.currency_bitcoin,
                 isInverted: true,
                 offset: -20,
               ),
               const CurrencyCard(
-                name: "Dollar",
-                code: "USD",
-                amount: "428",
+                name: 'Dollar',
+                code: 'USD',
+                amount: '428',
                 icon: Icons.attach_money_outlined,
                 isInverted: false,
                 offset: -40,
